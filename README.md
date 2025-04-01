@@ -1,3 +1,5 @@
+# APIs_Rest
+
 Este projeto consiste em um aplicativo mobile desenvolvido em React Native usando Expo. O objetivo do app é listar criptomoedas com suas respectivas cotações e fornecer detalhes sobre cada uma delas. Os dados são obtidos por meio da API CoinGecko.
 
 📌 Funcionalidades
