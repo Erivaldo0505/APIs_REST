@@ -1,46 +1,82 @@
-# Welcome to your Expo app 👋
+Este projeto consiste em um aplicativo mobile desenvolvido em React Native usando Expo. O objetivo do app é listar criptomoedas com suas respectivas cotações e fornecer detalhes sobre cada uma delas. Os dados são obtidos por meio da API CoinGecko.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+📌 Funcionalidades
 
-## Get started
+Listagem das principais criptomoedas do mercado com nome, ícone e preço atual.
 
-1. Install dependencies
+Exibição de detalhes de uma criptomoeda selecionada, incluindo descrição e preço atualizado.
 
-   ```bash
-   npm install
-   ```
+Interface responsiva e com tema escuro para melhor experiência do usuário.
 
-2. Start the app
+🛠️ Tecnologias Utilizadas
 
-   ```bash
-    npx expo start
-   ```
+React Native
 
-In the output, you'll find options to open the app in a
+Expo (para facilitar o desenvolvimento e teste)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+API CoinGecko (para obter os dados das criptomoedas)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Styled Components (para estilização)
 
-## Get a fresh project
+🚀 Como Executar o Projeto
 
-When you're ready, run:
+1️⃣ Requisitos
 
-```bash
-npm run reset-project
-```
+Ter o Node.js instalado na máquina
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Ter o Expo CLI instalado globalmente (npm install -g expo-cli)
 
-## Learn more
+Um emulador Android/iOS ou o aplicativo Expo Go instalado no celular
 
-To learn more about developing your project with Expo, look at the following resources:
+2️⃣ Clonar o repositório
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+  git clone https://github.com/Erivaldo0505/APIs_REST.git
+  cd APIs_REST
+
+Ou utilize:
+
+  git@github.com:Erivaldo0505/APIs_REST.git
+
+Ou via GitHub CLI:
+
+  gh repo clone Erivaldo0505/APIs_REST
+
+3️⃣ Instalar dependências
+
+  npm install
+
+4️⃣ Iniciar o projeto
+
+  expo start
+
+Com isso, você pode escanear o QR Code gerado no terminal com o Expo Go ou rodar o app no emulador.
+
+📂 Estrutura do Projeto
+
+APIs_REST/
+│-- src/
+│   ├── components/   # Componentes reutilizáveis
+│   ├── screens/      # Telas do aplicativo
+│   ├── styles/       # Estilos globais
+│   ├── services/     # Consumo da API
+│   ├── App.js        # Arquivo principal do aplicativo
+│-- assets/           # Ícones e imagens
+│-- package.json      # Dependências do projeto
+│-- README.md         # Documentação do projeto
+
+🔗 API Utilizada
+
+Os dados são obtidos da API gratuita da CoinGecko:
+
+Listagem de moedas: https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd
+
+Detalhes de uma moeda: https://api.coingecko.com/api/v3/coins/{id}
+
+📜 Licença
+
+Este projeto está licenciado sob a GPL-3.0 License. Sinta-se à vontade para contribuir! 😊
+
+
 
 ## Join the community
 
