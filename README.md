@@ -1,50 +1,97 @@
-# Welcome to your Expo app 👋
+# 📱 Random User App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicativo em React Native que consome a API [Random Data API](https://random-data-api.com) para listar usuários aleatórios, com opção de ver detalhes ao clicar em um item da lista.
 
-## Get started
+## 🚀 Funcionalidades
 
-1. Install dependencies
+- ✅ Lista de usuários aleatórios
+- ✅ Tela de detalhes do usuário
+- ✅ Pull to Refresh para atualizar os dados
+- ✅ Indicador de carregamento
+- ✅ Tratamento de erros de requisição
 
-   ```bash
-   npm install
-   ```
+## 🗂️ Estrutura do Projeto
 
-2. Start the app
+APIs_REST/ ├── assets/ # Imagens e recursos estáticos (se houver) ├── App.js # Arquivo principal que renderiza UserList ou UserDetails ├── package.json # Dependências e scripts do projeto ├── README.md # Documentação do projeto ├── .gitignore # Arquivos e pastas ignorados pelo Git
 
-   ```bash
-    npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+### 🧩 Componentes
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **UserList**: Lista de usuários com busca na API, refresh e navegação para detalhes.
+- **UserDetails**: Tela com mais informações do usuário selecionado.
+- **App**: Controla o estado de navegação entre as telas.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🔧 Tecnologias Utilizadas
 
-## Get a fresh project
+- [React Native](https://reactnative.dev/)
+- [JavaScript (ES6+)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [Random Data API](https://random-data-api.com)
 
-When you're ready, run:
+## ▶️ Como Executar o Projeto
 
-```bash
-npm run reset-project
-```
+### 1. Pré-requisitos
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- Node.js instalado
+- Expo CLI:
+  npm install -g expo-cli
 
-## Learn more
+  Emulador Android/iOS ou dispositivo com o app Expo Go
 
-To learn more about developing your project with Expo, look at the following resources:
+  Clonar o repositório
+  
+  git clone https://github.com/Erivaldo0505/APIs_REST.git
+  cd APIs_REST
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+ Instalar as dependências
+ 
+ npm install
 
-## Join the community
+ Executar o projeto
+ npx expo start
 
-Join our community of developers creating universal apps.
+ Abra o aplicativo Expo Go no seu celular e escaneie o QR Code exibido no terminal.
+ Ou use os atalhos:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+ Use o atalho a (para Android) ou i (para iOS) no terminal para abrir no emulador.
+    
+📌 Observação: Os dados dos usuários são gerados aleatoriamente a cada requisição.
+Não é necessário autenticação para uso da API.
+
+## 📄 2. Relatório Técnico
+
+### 🛠️ Processo de Desenvolvimento
+
+O projeto foi desenvolvido com o objetivo de praticar o consumo de APIs REST em um app React Native. Comecei estruturando a aplicação com uma tela principal que lista usuários aleatórios consumidos da API [Random Data API](https://random-data-api.com/). Em seguida, implementei uma navegação simples entre a tela de listagem e os detalhes do usuário selecionado.
+
+Utilizei `useEffect` para buscar os dados assim que a tela carrega e `useState` para gerenciar o estado da lista, carregamento e erros. Também adicionei a funcionalidade de **pull-to-refresh**, permitindo que o usuário atualize a lista deslizando a tela para baixo.
+
+### ⚠️ Desafios Encontrados e Soluções
+
+- **Erro na requisição da API:** Em algumas chamadas, a API retornava uma lista vazia ou com apenas um item. Para resolver isso, ajustei a URL incluindo o parâmetro `?size=10`, garantindo que sempre fossem retornados 10 usuários.
+  
+- **Imagem de avatar quebrando layout:** Em alguns casos, a imagem do avatar era inválida ou demorava a carregar, o que afetava o visual da lista. Para isso, adicionei um estilo com `borderRadius` e `size fixo`, garantindo que mesmo imagens com erro mantivessem o layout estável.
+
+- **Gerenciamento de estados entre telas:** Para alternar entre a lista e os detalhes, implementei a lógica diretamente no `App.js`, usando um estado `selectedUser` que controla a tela exibida. Isso manteve a navegação leve e sem necessidade de bibliotecas externas.
+
+### 🔄 Fetch vs. Axios
+
+Durante o desenvolvimento, optei por utilizar o `fetch`, que é nativo do JavaScript e já está disponível sem necessidade de instalação. Ele é suficiente para chamadas simples como as desse projeto.
+
+No entanto, vale a pena destacar algumas comparações:
+
+| Característica        | Fetch                         | Axios                                |
+|------------------------|-------------------------------|---------------------------------------|
+| Instalação             | Nativo, sem instalação        | Requer instalação via `npm` ou `yarn` |
+| Suporte a JSON         | Requer `res.json()` manualmente | Já retorna os dados convertidos      |
+| Interceptadores        | Não possui                    | Possui interceptadores nativos        |
+| Cancelamento de requisições | Complexo                   | Fácil de usar com `CancelToken`       |
+
+Se o projeto crescesse ou tivesse autenticação, tratamentos globais de erro ou loading, o Axios provavelmente seria a escolha mais robusta.
+
+---
+
+Esse relatório visa compartilhar de forma transparente as etapas e aprendizados obtidos com a construção do app, reforçando a importância de práticas simples, mas bem estruturadas.
+
+Feito por: Erivaldo505
+ 
+
